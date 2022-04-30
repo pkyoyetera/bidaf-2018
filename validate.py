@@ -8,7 +8,7 @@ from utils.evaluate import evaluate
 # Validation function
 def validate(model, validation_set, index2word, device='cpu'):
     loss = 0.
-    batch_ct = 0
+    ct = 0
 
     # Set model into evaluation phase
     model.eval()
@@ -16,8 +16,9 @@ def validate(model, validation_set, index2word, device='cpu'):
     predictions = {}
 
     for batch in validation_set:
-        if batch_ct % 500 == 0:
-            print(f"\rValidation batch: {batch_ct} of {len(validation_set)}", end='', flush=True)
+        if ct % 10 == 0:
+            print(f"\rValidation batch: {ct} of {len(validation_set)}", end='', flush=True)
+        ct += 1
 
         context, query, context_chars, query_chars, label, context_emb, ans, ids = batch
 

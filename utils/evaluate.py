@@ -1,6 +1,7 @@
 import json
 
 from collections import Counter
+from pathlib import Path
 from typing import Callable, List
 
 from .utils import normalize_answer
@@ -32,7 +33,8 @@ def evaluate(predictions):
     :param predictions: dict of model predictions.
     :return: em: 1 if prediction matches the ground truth exactly, 0 otherwise
     """
-    with open('../data/squad_dev.json', 'r', encoding='utf-8') as f:
+    parent_path = Path(".").parent.absolute().as_posix()
+    with open(parent_path+'/data/squad_dev.json', 'r', encoding='utf-8') as f:
         data = json.load(f)
 
     data = data['data']

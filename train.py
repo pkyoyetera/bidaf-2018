@@ -11,7 +11,7 @@ def train(model, trainset, optim, device='cpu'):
 
     for batch in trainset:
         optim.zero_grad()
-        if batch_ct % 20 == 0:
+        if batch_ct % 10 == 0:
             print(f"\rBatch: {batch_ct} of {len(trainset)}", end='', flush=True)
         batch_ct += 1
 
