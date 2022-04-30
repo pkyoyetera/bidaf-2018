@@ -11,8 +11,8 @@ def train(model, trainset, optim, device='cpu'):
 
     for batch in trainset:
         optim.zero_grad()
-        if batch_ct % 100 == 0:
-            print(f"Batch: {batch_ct}")
+        if batch_ct % 20 == 0:
+            print(f"\rBatch: {batch_ct} of {len(trainset)}", end='', flush=True)
         batch_ct += 1
 
         context, query, context_chars, query_chars, label, context_emb, ans, ids = batch

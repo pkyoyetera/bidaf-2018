@@ -17,7 +17,7 @@ def validate(model, validation_set, index2word, device='cpu'):
 
     for batch in validation_set:
         if batch_ct % 500 == 0:
-            print(f"Validation batch: {batch_ct}")
+            print(f"\rValidation batch: {batch_ct} of {len(validation_set)}", end='', flush=True)
 
         context, query, context_chars, query_chars, label, context_emb, ans, ids = batch
 
