@@ -34,7 +34,6 @@ from validate import validate
 EPOCHS = 5
 
 EMB_DIM = 100
-# EMB_DIM = 300
 CHAR_EMB_DIM = 8
 NUM_OUTPUT_CHANNELS = 100
 KERNEL_SIZE = (8, 4)
@@ -100,7 +99,7 @@ def main():
         char2index, character_vocab = build_character_vocabulary(vocab_text)
 
         end = datetime.now()
-        print(f"Finished vocabulary. Time: {end - start}s")
+        print(f"Finished vocabulary. Time: {end - start}")
 
         print("\nWrapping up dataset creation...")
         start = datetime.now()
@@ -132,7 +131,7 @@ def main():
             pickle.dump(char2index, h)
 
         end = datetime.now()
-        print(f"Done! Time: {end - start}s")
+        print(f"Done! Time: {end - start}")
 
         weights_matrix, words_found = create_weights_matrix(get_glove_dict(), word_vocabulary)
         np.save('data/bidafglove_short_tv.npy', weights_matrix)

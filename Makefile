@@ -1,9 +1,9 @@
 
-venv/bin/activate: requirements.txt
+activate: requirements.txt
 	python3.8 -m venv venv
 	./venv/bin/activate
 
-run: venv/bin/activate
+run: activate
 	venv/bin/python3 main.py
 
 install_data:
