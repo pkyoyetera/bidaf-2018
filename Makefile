@@ -1,10 +1,10 @@
 
-activate: requirements.txt
+venv/bin/activate: requirements.txt
 	python3.8 -m venv venv
-	./venv/bin/activate
+	 ./venv/bin/pip install -r requirements.txt
 
-run: activate
-	venv/bin/python3 main.py
+run: venv/bin/activate
+	./venv/bin/python3 main.py
 
 install_data:
 	wget -O data/squad_train.json https://rajpurkar.github.io/SQuAD-explorer/dataset/train-v2.0.json

@@ -39,4 +39,5 @@ def train(model, trainset, optim, device='cpu'):
 
         loss += _loss.item()
 
+    print("")
     return loss / len(trainset)

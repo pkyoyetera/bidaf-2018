@@ -57,4 +57,6 @@ def validate(model, validation_set, index2word, device='cpu'):
     # F1 and exact match scores
     em, f1 = evaluate(predictions)
 
+    print("")
+
     return loss / len(validation_set), em, f1
