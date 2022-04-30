@@ -1,5 +1,5 @@
-# Bidaf-2018
-An implementation if Bi-directional Attention flow from this [paper](https://arxiv.org/abs/1611.01603).
+# BiDAF-2018
+An implementation of the Bi-Directional Attention Flow model from [this paper](https://arxiv.org/abs/1611.01603) for training on the SQuAD2.0 dataset.
 
 ## Run
 

@@ -9,6 +9,7 @@ import numpy as np
 import pandas as pd
 
 from collections import Counter
+from pathlib import Path
 from typing import Dict, List, Set
 
 
@@ -293,7 +294,10 @@ def answer_index(row, idx2word):
 
 def get_glove_dict():
     glove_dict = {}
-    with open("../data/glove.6B.100d.txt", "r", encoding="utf-8") as f:
+
+    # stop complaining
+    parent_path = Path(".").parent.absolute().as_posix()
+    with open(parent_path+"/data/glove.6B.100d.txt", "r", encoding="utf-8") as f:
         for line in f:
             values = line.split()
             word = values[0]

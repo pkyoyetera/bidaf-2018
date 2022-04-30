@@ -14,7 +14,7 @@ class CharacterEmbeddingLayer(nn.Module):
                                            char_embedding_dim,
                                            padding_idx=1)
         self.character_conv = nn.Conv2d(in_channels=1,
-                                        out_channels=num_output_channels,
+                                        out_channels=100,
                                         kernel_size=kernel_size)
         self.relu = nn.ReLU()
         self.dropout = nn.Dropout(0.2)
@@ -160,7 +160,7 @@ class BiDirectionalAttentionFlow(torch.nn.Module):
         # Query-to-Context Attention
         att_c = F.softmax(torch.max(similarity_mat, 2)[0], dim=-1).unsqueeze(1)
         query_to_context = torch.bmm(att_c, contextual_embedding_ctx)
-        query_to_context = query_to_context.repeat(1, context_length)
+        query_to_context = query_to_context.repeat(1, context_length, 1)
 
         # The Query-aware representation
         G = torch.cat([contextual_embedding_ctx,
